@@ -22,6 +22,7 @@ const App = () => {
   const [result, setResult] = useState(0);
   const [histories, setHistories] = useState([]);
   const [restoredHistory, setRestoredHistory] = useState(0);
+  const [inputErr, setInputErr] = useState(false);
   // console.log(restoredHistory);
 
   const handleInputFields = (e) => {
@@ -66,7 +67,7 @@ const App = () => {
 
   const handleArithmeticOps = (operator) => {
     if (!inputState.a || !inputState.b) {
-      alert("Invalid Input");
+      setInputErr(true);
       return;
     }
 
@@ -88,6 +89,7 @@ const App = () => {
       date: new Date(),
     };
     setHistories([historyItem, ...histories]);
+    setInputErr(false);
   };
 
   const handleRestoreBtn = (historyItem) => {
@@ -97,9 +99,15 @@ const App = () => {
   };
 
   return (
-    <div className='w-2/4 mx-auto mt-10 border p-10'>
-      <h1 className='text-3xl'>Result: {result}</h1>
-      <InputSection inputs={inputState} handleInput={handleInputFields} />
+    <div className='w-2/4 mx-auto mt-10 border p-10 bg-cyan-50 rounded-md'>
+      <h1 className='text-3xl font-bold py-5 text-stone-700'>
+        Result: {result}
+      </h1>
+      <InputSection
+        inputs={inputState}
+        handleInput={handleInputFields}
+        inputErr={inputErr}
+      />
       <Operators
         handleArithmeticOps={handleArithmeticOps}
         handleClearOps={handleClearOps}

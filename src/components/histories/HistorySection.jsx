@@ -2,21 +2,19 @@ import PropTypes from "prop-types";
 
 const HistorySection = ({ histories, handleRestoreBtn, restoredHistory }) => {
   return (
-    <div>
-      <p>History</p>
+    <div className='text-stone-700'>
+      <p className='text-xl font-semibold py-2'>History</p>
       {histories.length === 0 ? (
-        <p>
-          <small>There is no history</small>
-        </p>
+        <p className=' font-semibold text-cyan-600'>There is no history.</p>
       ) : (
         <ul>
           {histories.map((historyItem) => (
             <li key={historyItem.id}>
-              <p>
+              <p className='font-bold'>
                 operator: {historyItem.inputs.a} {historyItem.operator}{" "}
                 {historyItem.inputs.b}, Result: {historyItem.result}
               </p>
-              <small>
+              <small className='font-bold'>
                 {historyItem.date.toLocaleDateString()}{" "}
                 {historyItem.date.toLocaleTimeString()}
               </small>
@@ -26,6 +24,7 @@ const HistorySection = ({ histories, handleRestoreBtn, restoredHistory }) => {
                 disabled={
                   restoredHistory != null && restoredHistory === historyItem.id
                 }
+                className=' bg-gray-400 px-4 py-1 rounded-md text-purple-900 font-bold disabled:opacity-50 disabled:cursor-not-allowed mb-5'
               >
                 restore
               </button>
