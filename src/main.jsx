@@ -1,14 +1,23 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App.jsx";
-// import App1 from "./App1.jsx";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import ProfileCartSection from "./profileCart/ProfileCartSection.jsx";
 import "./index.css";
+import App from "./App";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+  },
+  {
+    path: "/cart",
+    element: <ProfileCartSection />,
+  },
+]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <App />
-    {/* <App1 /> */}
-    <ProfileCartSection />
+    <RouterProvider router={router} />
   </React.StrictMode>
 );

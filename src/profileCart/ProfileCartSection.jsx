@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from "react";
 import {
-  FaBehance,
-  FaFacebookF,
-  FaLinkedinIn,
   FaMinus,
   FaPlus,
 } from "react-icons/fa6";
