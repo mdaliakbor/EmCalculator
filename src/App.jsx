@@ -23,7 +23,6 @@ const App = () => {
   const [histories, setHistories] = useState([]);
   const [restoredHistory, setRestoredHistory] = useState(0);
   const [inputErr, setInputErr] = useState(false);
-  // console.log(restoredHistory);
 
   const handleInputFields = (e) => {
     setInputState({
@@ -36,34 +35,6 @@ const App = () => {
     setInputState({ ...InitialInputState });
     setResult(0);
   };
-
-  // const handleFieldA = (e) => {
-  // 	setInputState({
-  // 		...inputState,
-  // 		a: parseInt(e.target.value),
-  // 	});
-  // };
-
-  // const handleFieldB = (e) => {
-  // 	setInputState({
-  // 		...inputState,
-  // 		b: parseInt(e.target.value),
-  // 	});
-  // };
-
-  // const handleInputFields = (key, value) => {
-  //   setInputState({
-  //     ...inputState,
-  //     [key]: value
-  //   })
-  // };
-
-  // const handleInputFields = (inp) => {
-  // 	setInputState({
-  // 		...inputState, // previous state
-  // 		...inp, // new state
-  // 	});
-  // };\
 
   const handleArithmeticOps = (operator) => {
     if (!inputState.a || !inputState.b) {
@@ -79,7 +50,6 @@ const App = () => {
     );
     const result = f(operator);
     setResult(result);
-    // setResult(eval(`${inputState.a} ${operator} ${inputState.b}`));
 
     const historyItem = {
       id: getId.next().value,
